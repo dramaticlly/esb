@@ -146,7 +146,7 @@ pid = options.pid
 if pid == 0:
     #create a config file
     config = open("esb_test.config", "w")
-    config.write("server_host 0.0.0.0\nserver_port 3940\nusername admin\npassword xxxnq.BMCifhU\ntable test\nconcurrency 1\n")
+    config.write("server_host 0.0.0.0\nserver_port 3940\nusername admin\npassword xxxnq.BMCifhU\ntable test col:char[2046]\nconcurrency 1\n")
     config.close()
 
     #start the server

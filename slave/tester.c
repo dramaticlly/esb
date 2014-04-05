@@ -91,7 +91,8 @@ const char* testClient(void* parameters)
                 memset(&record.metadata, 0, sizeof(record.metadata));
                 
 				stringGen(worker->startingKey + i, worker->valueSecret, record.value, sizeof(record.value));
-                                				
+                strncpy(record.value, "col ", 4);
+
                 struct timeval start;
                 gettimeofday(&start, NULL);
                 if(storage_set(worker->table, keyBuf, &record, worker->conn) == -1)
@@ -110,9 +111,11 @@ const char* testClient(void* parameters)
                 
                 char keyBuf[20]; //as per ECE297 spec
 				stringGen(keyIndex, worker->keySecret, keyBuf, sizeof(keyBuf));
+                
                 char expectedValue[1024];
 				stringGen(keyIndex, worker->valueSecret, expectedValue, sizeof(expectedValue));
-				
+				strncpy(expectedValue, "col ", 4);
+
                 struct timeval start;
                 gettimeofday(&start, NULL);
                 struct storage_record rec;
