@@ -1,0 +1,3 @@
+*.o
+master/esb_test.config
+slave/esb-slave
